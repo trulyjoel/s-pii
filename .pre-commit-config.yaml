@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: pii-detection
+        name: PII Detection
+        entry: python3 hooks/pre-commit-pii.py
+        language: system
+        stages: [commit]

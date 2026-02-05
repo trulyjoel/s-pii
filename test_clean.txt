@@ -1,0 +1,9 @@
+# Test file without PII
+
+This is a sample file with no personal information.
+It contains generic text and code examples.
+
+Variables:
+- count = 10
+- name = "application"
+- version = "1.0.0"
