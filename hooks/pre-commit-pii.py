@@ -49,7 +49,7 @@ def get_file_content(filepath: str) -> str:
     except subprocess.CalledProcessError:
         # If git show fails, try reading the file directly
         try:
-            with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+            with open(filepath, 'r', encoding='utf-8', errors='replace') as f:
                 return f.read()
         except Exception:
             return ""
@@ -95,9 +95,11 @@ def format_pii_findings(
         
         # Get context (the line containing the PII)
         lines = content.split('\n')
-        if line_num <= len(lines):
+        # line_num is 1-based, lines array is 0-based
+        if 0 < line_num <= len(lines):
             context_line = lines[line_num - 1]
         else:
+            # Edge case: if line calculation is off, use the PII text itself
             context_line = pii_text
         
         detail = (

@@ -23,7 +23,11 @@ pip3 install -r requirements.txt || pip install -r requirements.txt
 
 # Download spaCy model
 echo "📥 Downloading spaCy language model..."
-python3 -m spacy download en_core_web_sm
+if ! python3 -m spacy download en_core_web_sm; then
+    echo "Error: Failed to download spaCy model."
+    echo "Please try again or manually run: python3 -m spacy download en_core_web_sm"
+    exit 1
+fi
 
 # Copy pre-commit hook to .git/hooks
 echo "🔗 Installing pre-commit hook..."
