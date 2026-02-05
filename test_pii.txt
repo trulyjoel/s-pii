@@ -1,0 +1,11 @@
+# Test file with PII
+
+Contact Information:
+- Email: john.doe@example.com
+- Phone: 555-123-4567
+- SSN: 123-45-6789
+
+Customer Records:
+- Name: Jane Smith
+- Credit Card: 4532-1234-5678-9010
+- IP Address: 192.168.1.100
